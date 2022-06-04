@@ -1,0 +1,82 @@
+{% extends "admin_base.html" %} 
+{% block content %}
+{% if actors != "NULL" %}
+<table class="table">
+    <tr>
+        <th>
+            No
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last name
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    {%for actor in actors%}
+    <tr>
+        <td>
+            {{actor[0]}}
+        </td>
+        <td>
+            {{actor[1]}}
+        </td>
+        <td>
+            {{actor[2]}}
+        </td>
+        <td>
+            <div class="action-btn-container">
+                <a href="/view_actors/add_role/{{actor[0]}}">Add Role</a>
+                <a href="/view_actors/edit/{{actor[0]}}">Edit</a>
+                <a href="/view_actors/delete/{{actor[0]}}">Delete</a>
+            </div>
+        </td>
+    </tr>
+    {%endfor%}
+</table>
+{% else %}
+<h2>Empty Add Actors?</h2>
+{% endif %}
+{% if type == "view" %}
+<form class="row container-fluid director-form" method="POST">
+
+    <!-- Name input -->
+    <div class="form-outline mb-4 col-lg-12">
+      <input type="text" name="actorFName" class="form-control" required/>
+      <label class="form-label" for="form5Example1">First Name</label>
+    </div>
+  
+    <!-- Email input -->
+    <div class="form-outline mb-4 col-lg-12">
+      <input type="text" name="actorLName" class="form-control" required/>
+      <label class="form-label" for="form5Example2">Last Name</label>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Add</button>
+</form>
+{% elif type == "edit" %}
+<form class="row container-fluid director-form" method="POST">
+    <!-- Name input -->
+    <div class="form-outline mb-4 col-lg-12">
+      <input type="text" name="actorFName" value="{{actor[1]}}" class="form-control" required/>
+      <label class="form-label" for="form5Example1">First Name</label>
+    </div>
+  
+    <!-- Email input -->
+    <div class="form-outline mb-4 col-lg-12">
+      <input type="text" name="actorLName" value="{{actor[2]}}" class="form-control" required/>
+      <label class="form-label" for="form5Example2">Last Name</label>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Edit</button>
+</form>
+
+{% endif %}
+
+{% endblock %}
+   

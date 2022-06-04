@@ -1,0 +1,37 @@
+{% extends "user_base.html" %}
+{% block content %}
+    {%include "main-show.html"%}
+    {%include "top-movie-char.html"%}
+    {%include "popular-show.html"%}
+    {%include "top-show.html"%}
+
+        <div class="top-books">
+            <h1>The Best Books</h1>
+            <h1 class="the-best-films"><a href="#">see more</a></h1>
+            <div class="top-show-list">
+                <a href="#">
+                    <img src="{{ url_for('static',filename='/assets/b1.jpg') }}" class="img-list">
+                </a>
+            </div>
+            <div class="top-show-list">
+                <a href="#">
+                    <img src="{{ url_for('static',filename='/assets/b2.jpg') }}" class="img-list">
+                </a>
+            </div>
+            <div class="top-show-list">
+                <a href="#">
+                    <img src="{{ url_for('static',filename='/assets/b3.jpg') }}" class="img-list">
+                </a>
+            </div>
+            <div class="top-show-list">
+                <a href="#">
+                    <img src="{{ url_for('static',filename='/assets/b4.jpg') }}" class="img-list">
+                </a>
+            </div>
+            <div class="top-show-list">
+                <a href="#">
+                    <img src="{{ url_for('static',filename='/assets/b5.jpg') }}" class="img-list">
+                </a>
+            </div>
+        </div>
+{% endblock %}

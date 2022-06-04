@@ -1,0 +1,30 @@
+<form method="POST">
+    <p style="color: black; margin-left:2%">Add to my list</p>
+    <label for="status"><b>Status</b></label>
+    <select name="status" class="view-item-select">
+        <option value="Plan to watch">Plan to watch</option>
+        <option value="Watching">Watching</option>
+        <option value="Completed">Completed</option>
+      </select>
+    <label for="start_date"><b>Start Date</b></label>
+    <input type="text" value="{{itemDetails[4]}}" name="start_date">
+    <label for="start_date"><b>End Date</b></label>
+    <input type="text" placeholder="mm/dd/year" name="end_date">
+    <label for="start_date"><b>Episode Seen</b></label>
+    <input type="text" placeholder="episode / {{itemDetails[3]}}"name="ep_seen">
+    <label for="start_date"><b>Rating</b></label>
+    <select name="rating" class="view-item-select">
+          <option value="NULL">Please Choose from 1/10</option>
+          <option value="2">1</option>
+          <option value="3">2</option>
+          <option value="4">3</option>
+          <option value="5">4</option>
+          <option value="6">5</option>
+          <option value="7">6</option>
+          <option value="8">7</option>
+          <option value="9">8</option>
+          <option value="10">9</option>
+          <option value="10">10</option>
+      </select>
+    <input type="submit" value="Submit" style="width: 100%; height:10%; margin-top: 4%;">
+</form>

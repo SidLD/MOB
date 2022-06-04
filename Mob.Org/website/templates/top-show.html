@@ -1,0 +1,12 @@
+<div class="top-show">
+    <h1>The Best Shows</h1>
+    <h1 class="the-best-films"><a href="#">see more</a></h1>
+    {%for show in details%}
+    <div class="top-show-list">
+        <a href="/view_item/{{show[0]}}">
+            <img src="{{show[10]}}" class="img-list">
+        </a>
+    </div>
+    
+    {%endfor%}
+</div>

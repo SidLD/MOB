@@ -1,0 +1,34 @@
+{% extends "admin_base.html" %} 
+{% block content %}
+<form class="add_film-container row container-fluid" method="POST">
+  {% for user in userDetails %}
+  <div class="row col-lg-6">
+    <p class="col-md-3" for="item_name">Title:</p>
+      <input class="col-md-9" type="text" id="item_name" name="item_name" value="{{user[1]}}"><br><br>
+      <p class="col-md-3" for="episode">Episodes:</p>
+      <input class="col-md-9" type="text" id="episode" name="episode" value="{{user[3]}}"><br><br>
+      <p class="col-md-3" for="date">Date Released:</p>
+      <input class="col-md-9" type="date" id="duration" name="date" value="{{user[4]}}" >
+      <p class="col-md-3" for="source">Source:</p>
+      <input class="col-md-9" type="text" id="source" name="source" value="{{user[5]}}"><br><br>
+      <p class="col-md-3" for="demographic">Demographic:</p>
+      <input class="col-md-9" type="text" id="demographic" name="demographic" value="{{user[6]}}"><br><br>
+      <p class="col-md-3" for="duration">Duration:</p>
+      <input class="col-md-9" type="text" id="duration" name="duration" value="{{user[7]}}"><br><br>
+      <p class="col-md-3" for="duration">Background:</p>
+      <input class="col-md-9" type="text" id="duration" name="background" value="{{user[9]}}"><br><br>
+      <p class="col-md-3" for="duration">Poster:</p>
+      <input class="col-md-9" type="text" id="duration" name="poster"  placeholder="https" value="{{user[10]}}"><br><br>
+      <p class="col-md-3" for="duration">Trailer:</p>
+      <input class="col-md-9" type="text" id="duration" name="trailer"  placeholder="https" value="{{user[11]}}"><br><br>
+  </div>
+  <div class="col-lg-6 row">
+      <p class="">Synopsis:</p><br/>
+      <div class="col-lg-12 md-form mb-4 pink-textarea active-pink-textarea">
+          <textarea name="synopsis" class="md-textarea form-control" rows="10" value="{{user[8]}}">{{user[8]}}</textarea>
+      </div>
+      <input class="col-md-12 add_film-btn" type="submit" value="Submit" height="100">
+  </div>
+  {%endfor%}
+</form>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "admin_base.html" %} 
+{% block content %}
+{% if view_type == "directors"%}
+{% if result_list != NULL %}
+<form>
+    <table class="table">
+        <tr>
+            <th>
+                No
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        {%for director in result_list%}
+        <tr>
+            <td>
+                {{director[0]}}
+            </td>
+            <td>
+                {{director[1]}}
+            </td>
+            <td>
+                {{director[2]}}
+            </td>
+            <td>
+                <a href="\film_table\{{film_id}}\{{view_type}}\delete\{{director[0]}}">Delete</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table> 
+</form>
+{% else %}
+<h3>
+    Opps No Director List here
+</h3>
+{% endif %}
+<br><br>
+<!-- Name input -->
+<form class="row container-fluid director-form" method="POST">
+    <select class="form-select" name="form-select" aria-label="Default select example">
+        {% for director in director_list %}
+        <option value="{{director[0]}}">{{director[1]}} {{director[2]}}</option>
+        {%endfor%}
+      </select>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Add Director</button>
+</form>
+{%elif view_type == "characters"%}
+{% if result_list != NULL %}
+<form>
+    <h2>Characters</h2>
+    <table class="table">
+        <tr>
+            <th>
+                No
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Role
+            </th>
+            <th>
+                Poster URL
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        {% for character in result_list%}
+        <tr>
+            <td>
+                {{character[0]}}
+            </td>
+            <td>
+                {{character[1]}}
+            </td>
+            <td>
+                {{character[2]}}
+            </td>
+            <td>
+                {{character[3]}}
+            </td>
+            <td>
+                {{character[4]}}
+            </td>
+            <td>
+                <a href="\film_table\{{film_id}}\{{view_type}}\delete\{{character[0]}}">Delete</a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table> 
+</form>
+{% else %}
+<h3>
+    Opps No Character List here
+</h3>
+{% endif %}
+<br><br>
+<!-- Name input -->
+<form class="row container-fluid director-form" method="POST">
+    <select class="form-select" name="form-select" aria-label="Default select example">
+        {% for character in character_list%}
+        <option value="{{character[0]}}">{{character[1]}} {{character[2]}}</option>
+        {%endfor%}
+        </select>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Add Character</button>
+</form>
+{%endif%}
+{% endblock %}
+   

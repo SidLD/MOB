@@ -1,0 +1,33 @@
+{% extends "admin_base.html" %} 
+{% block content%}
+<form class="add_film-container row container-fluid" method="POST">
+    <div class="row col-lg-6">
+      <p class="col-md-3" for="item_name">Title:</p>
+      <input class="col-md-9" type="text" id="item_name" name="item_name"><br><br>
+      <p class="col-md-3" for="episode">Episodes:</p>
+      <input class="col-md-9" type="text" id="episode" name="episode"><br><br>
+      <p class="col-md-3" for="date">Date Released:</p>
+      <input class="col-md-9" type="datetime-local" id="date" name="date"><br><br>
+      <p class="col-md-3" for="source">Source:</p>
+      <input class="col-md-9" type="text" id="source" name="source" ><br><br>
+      <p class="col-md-3" for="demographic">Demographic:</p>
+      <input class="col-md-9" type="text" id="demographic" name="demographic" ><br><br>
+      <p class="col-md-3" for="duration">Duration:</p>
+      <input class="col-md-9" type="text" id="duration" name="duration" ><br><br>
+      <p class="col-md-3" for="duration">Background:</p>
+      <input class="col-md-9" type="text" id="duration" name="background" ><br><br>
+      <p class="col-md-3" for="duration">Poster:</p>
+      <input class="col-md-9" type="text" id="duration" name="poster"  placeholder="https"><br><br>
+      <p class="col-md-3" for="duration">Trailer:</p>
+      <input class="col-md-9" type="text" id="duration" name="trailer"  placeholder="https"><br><br>
+    </div>
+    <div class="col-lg-6 row">
+      <p class="">Synopsis:</p><br/>
+      <div class="col-lg-12 md-form mb-4 pink-textarea active-pink-textarea">
+        <textarea name="synopsis" class="md-textarea form-control" rows="10"></textarea>
+      </div>
+      <input class="col-md-12 add_film-btn" type="submit" value="Submit" height="100">
+    </div>
+
+  </form>
+{% endblock %}

@@ -1,0 +1,294 @@
+{% extends "admin_base.html" %} 
+{% block content %}
+    {% if type == "view" and view_type =="directors"%}
+        {% if result_list != "NULL" %}
+            <form>
+                <table class="table">
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            First Name
+                        </th>
+                        <th>
+                            Last Name
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                    {%for director in result_list%}
+                    <tr>
+                        <td>
+                            {{director[0]}}
+                        </td>
+                        <td>
+                            {{director[1]}}
+                        </td>
+                        <td>
+                            {{director[2]}}
+                        </td>
+                        <td>
+                            <div class="action-btn-container">
+                                <a href="/admin_base/directors/edit/{{director[0]}}">Edit</a>
+                                <a href="/admin_base/directors/delete/{{director[0]}}">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </table> 
+            </form>
+        {% else %}
+            <h3>
+                Opps No Director List here
+            </h3>
+        {% endif %}
+    <br><br>
+    <!-- Name input -->
+    <form class="row container-fluid director-form" method="POST">
+        <!-- Name input -->
+        <div class="form-outline mb-4 col-lg-12">
+          <input type="text" name="directorFName" class="form-control" required/>
+          <label class="form-label" for="form5Example1">First Name</label>
+        </div>
+    
+        <!-- Email input -->
+        <div class="form-outline mb-4 col-lg-12">
+          <input type="text" name="directorLName" class="form-control" required/>
+          <label class="form-label" for="form5Example2">Last Name</label>
+        </div>
+    
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Add</button>
+      </form>
+    {% elif view_type == "characters" and type == "view" %}
+        {% if result_list != "NULL" %}
+            <form>
+                <table class="table">
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            First Name
+                        </th>
+                        <th>
+                            Last Name
+                        </th>
+                        <th>
+                            Role
+                        </th>
+                        <th>
+                            Poster URL
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                    {%for character in result_list%}
+                    <tr>
+                        <td>
+                            {{character[0]}}
+                        </td>
+                        <td>
+                            {{character[1]}}
+                        </td>
+                        <td>
+                            {{character[2]}}
+                        </td>
+                        <td>
+                            {{character[3]}}
+                        </td>
+                        <td>
+                            {{character[4]}}
+                        </td>
+                        <td>
+                            <div class="action-btn-container">
+                                <a href="/admin_base/characters/edit/{{character[0]}}">Edit</a>
+                                <a href="/admin_base/characters/delete/{{character[0]}}">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </table> 
+            </form>
+        {% else %}
+            <h3>
+                Opps No Character List here
+            </h3>
+        {% endif %}
+        <br><br>
+        <!-- Name input -->
+        <form class="row container-fluid director-form" method="POST">
+            <div class="form-outline mb-4 col-lg-12">
+              <input type="text" name="characterFName" value="" class="form-control" required/>
+              <label class="form-label" for="form5Example1">First Name</label>
+            </div>
+        
+            <div class="form-outline mb-4 col-lg-12">
+              <input type="text" name="characterLName" class="form-control" required/>
+              <label class="form-label" for="form5Example2">Last Name</label>
+            </div>
+        
+            <div class="form-outline mb-4 col-lg-12">
+                <input type="text" name="characterRole" class="form-control" required/>
+                <label class="form-label" for="form5Example2">Role</label>
+              </div>
+          
+            <div class="form-outline mb-4 col-lg-12">
+                <input type="text" name="characterPosterURL" placeholder="https...." class="form-control" required/>
+                <label class="form-label" for="form5Example2">Poster Link</label>
+            </div>
+        
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Add</button>
+          </form>
+    {% elif view_type == "characters" and type == "edit" %}
+        {% if result_list != "NULL" %}
+
+<form>
+    <table class="table">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Role
+            </th>
+            <th>
+                Poster URL
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        {%for character in result_list%}
+        <tr>
+            <td>
+                {{character[0]}}
+            </td>
+            <td>
+                {{character[1]}}
+            </td>
+            <td>
+                {{character[2]}}
+            </td>
+            <td>
+                {{character[3]}}
+            </td>
+            <td>
+                {{character[4]}}
+            </td>
+            <td>
+                <div class="action-btn-container">
+                    <a href="/admin_base/characters/edit/{{character[0]}}">Edit</a>
+                    <a href="/admin_base/characters/delete/{{character[0]}}">Delete</a>
+                </div>
+            </td>
+        </tr>
+        {%endfor%}
+    </table> 
+</form>
+        {% else %}
+<h3>
+    Opps No Character List here
+</h3>
+        {% endif %}
+<br><br>
+<!-- Name input -->
+<form class="row container-fluid director-form" method="POST">
+    <div class="form-outline mb-4 col-lg-12">
+      <input type="text" name="characterFName" value={{character[1]}} class="form-control" required/>
+      <label class="form-label" for="form5Example1">First Name</label>
+    </div>
+  
+    <div class="form-outline mb-4 col-lg-12">
+      <input type="text" name="characterLName" value={{character[2]}} class="form-control" required/>
+      <label class="form-label" for="form5Example2">Last Name</label>
+    </div>
+
+    <div class="form-outline mb-4 col-lg-12">
+        <input type="text" name="characterRole" value={{character[3]}} class="form-control" required/>
+        <label class="form-label" for="form5Example2">Role</label>
+      </div>
+
+    <div class="form-outline mb-4 col-lg-12">
+        <input type="text" name="characterPosterURL" value={{character[4]}} placeholder="https...." class="form-control" required/>
+        <label class="form-label" for="form5Example2">Poster Link</label>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Edit</button>
+  </form>
+    {% elif view_type == "directors" and type == "edit" %}
+        {% if result_list != "NULL" %}
+    <form>
+        <table class="table">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+            {%for director in result_list%}
+            <tr>
+                <td>
+                    {{director[0]}}
+                </td>
+                <td>
+                    {{director[1]}}
+                </td>
+                <td>
+                    {{director[2]}}
+                </td>
+                <td>
+                    <div class="action-btn-container">
+                        <a href="/admin_base/directors/edit/{{director[0]}}">Edit</a>
+                        <a href="/admin_base/directors/delete/{{director[0]}}">Delete</a>
+                    </div>
+                </td>
+            </tr>
+            {%endfor%}
+        </table> 
+    </form>
+        {% else %}
+    <h3>
+        Opps No Director List here
+    </h3>
+        {% endif %}
+<br><br>
+<!-- Name input -->
+<form class="row container-fluid director-form" method="POST">
+<!-- Name input -->
+<div class="form-outline mb-4 col-lg-12">
+  <input type="text" name="directorFName" value={{director[1]}} class="form-control" required/>
+  <label class="form-label" for="form5Example1">First Name</label>
+</div>
+
+<!-- Email input -->
+<div class="form-outline mb-4 col-lg-12">
+  <input type="text" name="directorLName" value={{director[2]}} class="form-control" required/>
+  <label class="form-label" for="form5Example2">Last Name</label>
+</div>
+
+<!-- Submit button -->
+<button type="submit" class="btn btn-primary btn-block mb-4">Edit</button>
+</form>
+    {% endif %}
+{% endblock %}
+   

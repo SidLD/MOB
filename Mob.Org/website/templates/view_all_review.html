@@ -1,0 +1,26 @@
+<div class="view-all-review-container">
+    <div class="add-review">
+        <form action="/add_review" method="POST">
+            <div class="review_date">
+                <label for="birthday">Choose a date:</label>
+                <input type="date" id="birthday" name="review_date" required>
+            </div>
+            <div class="enter_review">
+                <p style="color: black; margin: 2%;"><label for="w3review">Review of {{itemDetails[1]}}:</label></p>
+                <textarea class="w3review" name="add_review" rows="4" cols="100" style="width: 95%;" required></textarea>
+            </div>
+            <input class="submit-review-btn" type="submit" name="submit">
+          </form>
+    </div>
+    {%for user_review in reviewDetails%}
+    <div class="view-all-review">
+        <h1 style="margin-left:1%;">{{user_review[2]}}</h1>
+        <p style="color: black; margin-left: 1%;">{{user_review[3]}}</p>
+        <div class="review-container" id="all-review-container">
+            <p style="color: black;">
+                {{user_review[4]}}
+            </p>
+        </div>
+    </div>
+    {%endfor%}
+</div>

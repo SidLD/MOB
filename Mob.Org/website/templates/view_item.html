@@ -1,0 +1,28 @@
+{% extends "user_base.html" %}
+{% block content %}
+    <div class="view-item-body">
+        <div class="view-item-info">
+            <div class="view-item-pic">
+                <img src="{{itemDetails[10]}}" class="img-list">
+            </div>
+            <div class="view-item-list">
+                <div style="margin:2%">
+                    {% if bool_listdetails == "true" %}
+                    {%include "view_item_edit.html"%}
+                    {% else %}
+                    {%include "view_item_add.html"%}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="view-item-details">
+                
+            </div>
+        </div>
+                {% if view_all_review == "true" %}
+                {%include "view_all_review.html"%}
+                {% else %}
+                {%include "view_item_body.html"%}
+                {% endif %}
+        </div>
+    </div>
+{% endblock %}

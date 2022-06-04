@@ -1,0 +1,55 @@
+{% extends "admin_base.html" %} 
+{% block content %}
+<h3>{{actor[1]}} {{actor[2]}}</h3>
+Actor Character
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Character Name
+        </th>
+        <th>
+            Character Role
+        </th>
+        <th>
+            Show
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    {%for actor_character in actor_characters%}
+    <tr>
+        <td>
+            {{actor_character[0]}}
+        </td>
+        <td>
+            {{actor_character[1]}} {{actor_character[2]}}
+        </td>
+        <td>
+            {{actor_character[3]}}
+        </td>
+        <td>
+            {{actor_character[5]}}
+        </td>
+        <td>
+            <div class="action-btn-container">
+                <a href="/view_actors/delete_role/{{actor[0]}}/{{actor_character[0]}}">Delete</a>
+            </div>
+        </td>
+    </tr>
+    {%endfor%}
+</table>
+<form class="row container-fluid director-form" method="POST">
+    <select class="form-select" name="form-select" aria-label="Default select example">
+        {% for character in character_list %}
+        <!--ID Name FILM-->
+        <option value="{{character[0]}}">{{character[1]}} {{character[2]}} - {{character[3]}}</option>
+        {%endfor%}
+      </select>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Add Character</button>
+</form>
+{% endblock %}
+   

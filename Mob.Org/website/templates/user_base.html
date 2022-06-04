@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>{% block title %}Home{% endblock %}</title>
+        <link href="{{ url_for('static',filename='/css/styles.css') }}" rel="stylesheet" />
+    </head>
+
+    <body>
+      <div class="grid">
+
+        <div class="head-navigation">
+            <ul>
+                <li><h1><a href="/">Mob.Org</a></h1></li>
+                <li><h1><a href="#">Home</a></li>
+                <li><h1><a href="#">Genre</a></li>
+                <li><h1><a href="#">Books</a></li>
+                <li><h1><a href="#">Movies</a></li>
+                {% if username == "username" %}
+                <button type="button" class="button"><li><h1><a href="/logout">Logout</a></li></button>
+                {% else %}
+                <button type="button" class="button"><li><h1><a href="/login">Sign-Up</a></li></button>
+                {% endif %}
+                    <form action="#">
+                        <li style="float: right;"><h1><a href="#">Search</a></li>
+                        <li style="float: right;"><input type="text" id="fname" name="search-bar" style="height: 50px; width: 250px; margin-top: 7px ;"></li>
+                    </form>      
+              </ul>
+        </div>
+   
+        {%block content%}
+
+        {%endblock%}
+
+        <div class="footer">
+            footer
+        </div>
+      </div>
+    </body>
+</html>

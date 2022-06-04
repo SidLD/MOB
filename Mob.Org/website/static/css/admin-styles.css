@@ -1,0 +1,189 @@
+:root{
+    --primary-color: #00a8e8;
+    --secondary-color: #007ea7;
+    --third-color: #003459;
+    --background-color: #00171f;
+    --font-color: white;
+}
+
+/* Admin Base */
+.admin-body{
+    margin: 0%;
+    padding: 0%;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    overflow-x: hidden;
+}
+.admin-option{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto 20vw;
+    color: inherit;
+}
+.admin-option-search-bar{
+    padding: 0.8rem 1.5rem;
+    border-radius: 13px;
+    font-size: 1.2rem;
+}
+/* .admin-option-btn{
+    
+} */
+
+/* Navigation Bar */
+.navbar{
+    background-color: var(--primary-color) !important;
+}
+.nav-link, .nav-search-btn{
+    color: var(--font-color) !important;
+}
+
+
+/* Table */
+.table-item-container{
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+    color: var(--font-color);
+}
+
+.table-item-poster{
+    width: 25vw;
+    height: 60vh;
+}
+.table-item-poster img{
+    height: 100%;
+    width: 100%;
+    margin-bottom: 3%;
+}
+.list-group{
+    width: 20vw;
+    margin-left: 1%;
+}
+.list-group-item{
+    color: var(--font-color);
+    background-color: var(--secondary-color);
+}
+.list-group-item:hover{
+    background-color: var(--primary-color);
+}
+
+
+.table-char-btn{
+    color: var(--font-color);
+    cursor: pointer;
+    border: solid 2px black;
+}
+
+.table-char-btn:hover{
+    background-color: black;
+}
+
+.item-action-container{
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-update-btn , .table-delete-btn{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    width: 50vw;
+    height: 100%;
+    color: var(--font-color);
+}
+.table-delete-btn:hover{
+    color: red;
+}
+
+.action-btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action-btn-container a{
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 25px;
+    border: var(--primary-color) solid 1px;
+}
+.action-btn-container a:hover{
+    background-color: var(--primary-color) !important;
+    color: var(--font-color);
+}
+
+
+.card-body{
+    color: var(--font-color);
+    background-color: var(--third-color);
+}
+
+
+/* Add Film */
+.add_film-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0%;
+}
+.add_film-container div p{
+    font-size: larger;
+}
+/* .synopsis-container{
+    display: flex;
+    flex-direction: column;
+} */
+.add_film-btn{
+    margin: inherit auto;
+    margin-left: 2%;
+    text-decoration: none;
+    max-width: 96%;
+    border-radius: 25px;
+    border: 2px solid var(--third-color);
+    color: var(--secondary-color);
+}
+.add_film-btn:hover{
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+
+/* Director */
+.director-form div{
+    max-width: 50%;
+}
+.director-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.director-form button{
+    max-width: 30%;
+}
+
+.table{
+    color: var(--font-color)
+}
+
+
+
+/* Selector */
+.form-select{
+    width: 15rem;
+    height: 3rem;
+    font-size: 2rem;
+    margin-bottom: 2%;
+}
+
+@media only screen  and (max-width: 768px){
+    iframe, .table-item-poste{
+        position: relative;
+    }
+    .card-body{
+        margin-top: 3%;
+    }
+}
